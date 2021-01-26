@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
+/* Makes enemies follow and attack the player */
+
 public class EnemyController : MonoBehaviour
 {
     public float lookRadius = 10f;
@@ -22,11 +24,14 @@ public class EnemyController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        float distance = Vector3.Distance(target.position, transform.position);
+        
+        float distance = Vector3.Distance(target.position, transform.position); // Get the distance to the player 
 
-        if (distance <= lookRadius)
+        
+        if (distance <= lookRadius) // If inside the radius
         {
-            agent.SetDestination(target.position);
+            
+            agent.SetDestination(target.position); // Move towards the player
 
             if (distance <= agent.stoppingDistance)
             {
@@ -40,7 +45,7 @@ public class EnemyController : MonoBehaviour
         }
     }
 
-    void FaceTarget ()
+    void FaceTarget () // Point towards the player
     {
         Vector3 direction = (target.position - transform.position).normalized;
         Quaternion lookRotation = Quaternion.LookRotation(new Vector3(direction.x, 0, direction.z));
