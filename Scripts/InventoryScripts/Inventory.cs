@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Inventory : MonoBehaviour
 {
-    #region Singleton
+    #region Singleton       // Singletons are used to reference attributes or methods from other classes
 
     public static Inventory instance;
 
@@ -25,9 +25,9 @@ public class Inventory : MonoBehaviour
 
     public int space = 20;
 
-    public List<Item> items = new List<Item>();
+    public List<Item> items = new List<Item>(); // Our current list of items in the inventory
 
-    public bool Add (Item item)
+    public bool Add (Item item) // Add a new item if enough room
     {
         if (!item.isDefaultItem)
         {
@@ -46,7 +46,7 @@ public class Inventory : MonoBehaviour
         return true;
     }
 
-    public void Remove (Item item)
+    public void Remove (Item item) // Remove an item
     {
         items.Remove(item);
 
