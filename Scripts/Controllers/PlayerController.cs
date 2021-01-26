@@ -64,12 +64,12 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    void SetFocus (Interactable newFocus)
+    void SetFocus (Interactable newFocus)  // Set our focus to a new focus
     {
-        if (newFocus != focus)
+        if (newFocus != focus) // If our focus has changed
         {
             if (focus != null)
-                focus.OnDefocused();
+                focus.OnDefocused(); // Let our previous focus know that it's no longer being focused
 
             focus = newFocus;
             motor.FollowTarget(newFocus);
